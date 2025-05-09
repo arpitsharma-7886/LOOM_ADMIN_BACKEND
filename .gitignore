@@ -1,0 +1,5 @@
+# Node modules
+node_modules/
+
+# Uploads inside src
+src/uploads/
