@@ -1,7 +1,7 @@
 // routes/seedNavItems.js
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const NavItem = require('../models/navItems');
+import NavItem from '../models/navItems.js';
 
 router.post('/seed-nav-items', async (req, res) => {
   const items = [
@@ -31,4 +31,4 @@ router.get('/nav-items', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

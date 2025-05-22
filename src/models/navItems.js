@@ -1,5 +1,5 @@
 // models/NavItem.js
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const navItemSchema = new mongoose.Schema({
   label: { type: String, required: true },
@@ -7,4 +7,6 @@ const navItemSchema = new mongoose.Schema({
   icon: { type: String, required: true }, 
 });
 
-module.exports = mongoose.model('NavItem', navItemSchema);
+const NavItems = mongoose.model('NavItem', navItemSchema);
+
+export default NavItems;

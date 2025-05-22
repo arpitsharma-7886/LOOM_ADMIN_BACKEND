@@ -1,7 +1,8 @@
-const jwt = require('jsonwebtoken');
-require('dotenv').config();
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv'
+dotenv.config();
 
-const authenticateJWT = (req, res, next) => {
+export const authenticateJWT = (req, res, next) => {
     const token = req.headers.authorization?.split(' ')[1];
     
 
@@ -18,7 +19,7 @@ const authenticateJWT = (req, res, next) => {
     }
 };
 
-const authorizeRoles = (...allowedRoles) => {
+export const authorizeRoles = (...allowedRoles) => {
     return (req, res, next) => {
         if (!req.user || !allowedRoles.includes(req.user.role)) {
             return res.status(403).json({ message: 'Access denied' });
@@ -26,5 +27,3 @@ const authorizeRoles = (...allowedRoles) => {
         next();
     };
 };
-
-module.exports = { authenticateJWT, authorizeRoles };

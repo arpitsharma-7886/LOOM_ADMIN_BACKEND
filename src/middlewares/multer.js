@@ -1,7 +1,7 @@
 // src/middlewares/multer.js
-const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
+import multer from "multer";
+import path from "path";
+import fs from "fs";
 
 const getMulterUploader = (folderName) => {
   const uploadPath = path.join("src", "uploads", folderName);
@@ -37,4 +37,4 @@ const getMulterUploader = (folderName) => {
   });
 };
 
-module.exports = getMulterUploader;
+export default getMulterUploader;

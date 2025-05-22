@@ -1,10 +1,11 @@
-const Admin = require('../models/admin');
-require('dotenv').config();
-const jwt = require('jsonwebtoken');
-const { generateToken } = require('../utils/tokenUtils');
+import Admin from '../models/admin.js';
+import dotenv from 'dotenv'
+import jwt from 'jsonwebtoken';
+import { generateToken } from '../utils/tokenUtils.js';
+dotenv.config();
 
 
-exports.login = async (req, res) => {
+export const login = async (req, res) => {
     try {
         const { phoneNumber, otp } = req.body;
 
@@ -48,7 +49,7 @@ exports.login = async (req, res) => {
     }
 };
 
-exports.initializeAdmin = async () => {
+export const initializeAdmin = async () => {
     try {
         const existingAdmin = await Admin.findOne({ phoneNumber: '8888888888' });
         if (!existingAdmin) {
